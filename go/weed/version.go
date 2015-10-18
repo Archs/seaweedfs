@@ -10,8 +10,8 @@ import (
 var cmdVersion = &Command{
 	Run:       runVersion,
 	UsageLine: "version",
-	Short:     "print SeaweedFS version",
-	Long:      `Version prints the SeaweedFS version`,
+	Short:     "print DFS version",
+	Long:      `Version prints the DFS version`,
 }
 
 func runVersion(cmd *Command, args []string) bool {

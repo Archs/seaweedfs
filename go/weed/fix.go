@@ -15,8 +15,8 @@ func init() {
 
 var cmdFix = &Command{
 	UsageLine: "fix -dir=/tmp -volumeId=234",
-	Short:     "run weed tool fix on index file if corrupted",
-	Long: `Fix runs the SeaweedFS fix command to re-create the index .idx file.
+	Short:     "run dfs tool fix on index file if corrupted",
+	Long: `Fix runs the DFS fix command to re-create the index .idx file.
 
   `,
 }

@@ -28,7 +28,7 @@ type UploadOptions struct {
 func init() {
 	cmdUpload.Run = runUpload // break init cycle
 	cmdUpload.IsDebug = cmdUpload.Flag.Bool("debug", false, "verbose debug information")
-	upload.server = cmdUpload.Flag.String("server", "localhost:9333", "SeaweedFS master location")
+	upload.server = cmdUpload.Flag.String("server", "localhost:9333", "DFS master location")
 	upload.dir = cmdUpload.Flag.String("dir", "", "Upload the whole folder recursively if specified.")
 	upload.include = cmdUpload.Flag.String("include", "", "pattens of files to upload, e.g., *.pdf, *.html, ab?d.txt, works together with -dir")
 	upload.replication = cmdUpload.Flag.String("replication", "", "replication type")

@@ -23,7 +23,7 @@ type DownloadOptions struct {
 
 func init() {
 	cmdDownload.Run = runDownload // break init cycle
-	d.server = cmdDownload.Flag.String("server", "localhost:9333", "SeaweedFS master location")
+	d.server = cmdDownload.Flag.String("server", "localhost:9333", "DFS master location")
 	d.dir = cmdDownload.Flag.String("dir", ".", "Download the whole folder recursively if specified.")
 }
 
@@ -35,7 +35,7 @@ var cmdDownload = &Command{
   Usually you just need to use curl to lookup the file's volume server, and then download them directly.
   This download tool combine the two steps into one.
 
-  What's more, if you use "weed upload -maxMB=..." option to upload a big file divided into chunks, you can
+  What's more, if you use "dfs upload -maxMB=..." option to upload a big file divided into chunks, you can
   use this tool to download the chunks and merge them automatically.
 
   `,

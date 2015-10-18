@@ -44,7 +44,7 @@ var (
 func init() {
 	cmdBenchmark.Run = runbenchmark // break init cycle
 	cmdBenchmark.IsDebug = cmdBenchmark.Flag.Bool("debug", false, "verbose debug information")
-	b.server = cmdBenchmark.Flag.String("server", "localhost:9333", "SeaweedFS master location")
+	b.server = cmdBenchmark.Flag.String("server", "localhost:9333", "DFS master location")
 	b.concurrency = cmdBenchmark.Flag.Int("c", 16, "number of concurrent write or read processes")
 	b.fileSize = cmdBenchmark.Flag.Int("size", 1024, "simulated file size in bytes, with random(0~63) bytes padding")
 	b.numberOfFiles = cmdBenchmark.Flag.Int("n", 1024*1024, "number of files to write for each thread")
@@ -63,7 +63,7 @@ func init() {
 var cmdBenchmark = &Command{
 	UsageLine: "benchmark -server=localhost:9333 -c=10 -n=100000",
 	Short:     "benchmark on writing millions of files and read out",
-	Long: `benchmark on an empty SeaweedFS file system.
+	Long: `benchmark on an empty DFS file system.
 
   Two tests during benchmark:
   1) write lots of small files to the system
@@ -99,7 +99,7 @@ var (
 )
 
 func runbenchmark(cmd *Command, args []string) bool {
-	fmt.Printf("This is SeaweedFS version %s %s %s\n", util.VERSION, runtime.GOOS, runtime.GOARCH)
+	fmt.Printf("This is DFS version %s %s %s\n", util.VERSION, runtime.GOOS, runtime.GOARCH)
 	if *b.maxCpu < 1 {
 		*b.maxCpu = runtime.NumCPU()
 	}

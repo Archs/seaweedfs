@@ -86,27 +86,27 @@ func main() {
 		}
 	}
 
-	fmt.Fprintf(os.Stderr, "weed: unknown subcommand %q\nRun 'weed help' for usage.\n", args[0])
+	fmt.Fprintf(os.Stderr, "dfs: unknown subcommand %q\nRun 'dfs help' for usage.\n", args[0])
 	setExitStatus(2)
 	exit()
 }
 
 var usageTemplate = `
-SeaweedFS: store billions of files and serve them fast!
+DFS: a distributed file system!
 
 Usage:
 
-	weed command [arguments]
+	dfs command [arguments]
 
 The commands are:
 {{range .}}{{if .Runnable}}
     {{.Name | printf "%-11s"}} {{.Short}}{{end}}{{end}}
 
-Use "weed help [command]" for more information about a command.
+Use "dfs help [command]" for more information about a command.
 
 `
 
-var helpTemplate = `{{if .Runnable}}Usage: weed {{.UsageLine}}
+var helpTemplate = `{{if .Runnable}}Usage: dfs {{.UsageLine}}
 {{end}}
   {{.Long}}
 `
@@ -135,7 +135,7 @@ func printUsage(w io.Writer) {
 
 func usage() {
 	printUsage(os.Stderr)
-	fmt.Fprintf(os.Stderr, "For Logging, use \"weed [logging_options] [command]\". The logging options are:\n")
+	fmt.Fprintf(os.Stderr, "For Logging, use \"dfs [logging_options] [command]\". The logging options are:\n")
 	flag.PrintDefaults()
 	os.Exit(2)
 }
@@ -148,7 +148,7 @@ func help(args []string) {
 		return
 	}
 	if len(args) != 1 {
-		fmt.Fprintf(os.Stderr, "usage: weed help command\n\nToo many arguments given.\n")
+		fmt.Fprintf(os.Stderr, "usage: dfs help command\n\nToo many arguments given.\n")
 		os.Exit(2) // failed at 'weed help'
 	}
 
@@ -162,7 +162,7 @@ func help(args []string) {
 		}
 	}
 
-	fmt.Fprintf(os.Stderr, "Unknown help topic %#q.  Run 'weed help'.\n", arg)
+	fmt.Fprintf(os.Stderr, "Unknown help topic %#q.  Run 'dfs help'.\n", arg)
 	os.Exit(2) // failed at 'weed help cmd'
 }
 
